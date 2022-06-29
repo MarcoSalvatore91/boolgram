@@ -9,9 +9,12 @@
                 <input type="text" placeholder="Cerca" class="text-center">
             </div>
             <div class="col-4 text-center m-auto">
-                <i class="fa-solid fa-heart mx-3"></i>
-                <i class="fa-solid fa-house mx-3"></i>
-                <img class="img-profile mx-3" src="../assets/profile.jpg" alt="profile">
+                <div class="d-flex justify-content-end align-items-center me-5">
+                    <i class="fa-solid fa-heart mx-3"></i>
+                    <i class="fa-solid fa-house mx-3"></i>
+                    <img v-if="loading === false" class="img-profile mx-3" src="../assets/profile.jpg" alt="profile">
+                    <b-skeleton v-if="loading === true" class="img-profile mx-3" type="avatar"></b-skeleton>
+                </div>
             </div>
         </div>
       </div>
@@ -21,6 +24,8 @@
 <script>
 export default {
 name: 'Header',
+
+props: ['loading'],
 }
 </script>
 
